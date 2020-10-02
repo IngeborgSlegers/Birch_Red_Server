@@ -12,6 +12,7 @@ sequelize.authenticate()
     const AllSkill = sequelize.import('./models/allSkill');
     const UserSkill = sequelize.import('./models/userSkill');
     const Resource = sequelize.import('./models/resource');
+    const ResourceSkill = sequelize.import('./models/resourceSkill');
 
     User.hasMany(UserSkill, {
             onDelete: 'cascade',
@@ -24,7 +25,7 @@ sequelize.authenticate()
     });
     UserSkill.belongsTo(AllSkill);
 
-    AllSkill.belongsToMany(Resource, {through: 'ResourceSkill'});
-    Resource.belongsToMany(AllSkill, {through: 'ResourceSkill'});
+    AllSkill.belongsToMany(Resource, {through: ResourceSkill});
+    Resource.belongsToMany(AllSkill, {through: ResourceSkill});
 
 module.exports = sequelize;

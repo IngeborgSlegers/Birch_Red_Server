@@ -20,7 +20,9 @@ router.post("/add", validateSession, (req, res) => {
  ***** Get All Skills ****
  ******************************/
 router.get("/", validateSession, (req, res) => {
-    AllSkill.findAll({include: [Resource]})
+    AllSkill.findAll(
+      // {include: [Resource]}
+      )
       .then((skills) => res.status(200).json(skills))
       .catch((err) => res.status(500).json({ error: err }));
   });

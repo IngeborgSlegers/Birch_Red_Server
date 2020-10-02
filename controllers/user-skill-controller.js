@@ -15,7 +15,7 @@ router.post("/add", validateSession, (req, res) => {
         res.status(404).send("No matching skill")
       } else {
     UserSkill.create({
-        skillName: skill.skillName,
+        // skillId: skill.skillName,
         activeLearning: req.body.skill.activeLearning,
         userId: req.user.id,
         allSkillId: skill.id
